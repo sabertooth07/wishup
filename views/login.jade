@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 User login
+    p Please login below
+    form(method="post", action="/users/login",enctype="application/x-www-form-urlencoded")
+        .form-group
+            label Email address
+            input.form-control(name="username", type="email", placeholder="enter email address")
+        .form-group
+            label Password
+            input.form-control(name="password", type="password", placeholder="enter password")
+        input.btn.btn-default(name="submit", type="submit", value="login")
+    p OR
+    a(href="/users/facebook") facebook_login    

@@ -1,0 +1,31 @@
+extends layout
+doctype html
+
+block content
+    h1 Todo list
+    if lists
+        each list, i in lists
+            .list
+                p list.title
+                p list.location
+                p list.time
+    else
+        p No todo lists available
+    br
+
+    form.comment-form(method="post", action="/lists/addlist", enctype="application/x-www-form-urlencoded")
+        .form-group
+            label Description
+            input.form-control(type="text", name="desc")
+        .form-group
+            label Location
+            input.form-control(type="text", name="location")
+
+            #somecomponent(style='width: 500px; height: 400px;')
+            script.
+                $('#somecomponent').locationpicker();
+        .form-group
+            label date-time
+            input.form-control(type="datetime-local", name="time")
+        br
+        input.btn.btn-default(name="submit", type="submit", value="Add todo item")
